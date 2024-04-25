@@ -33,6 +33,7 @@ const cadastrarUsuario = async (req, res) => {
 
     return res.status(201).json(novoUsuario.rows[0]);
   } catch (erro) {
+    console.log(erro);
     return res.status(500).json(erro.message);
   }
 };
