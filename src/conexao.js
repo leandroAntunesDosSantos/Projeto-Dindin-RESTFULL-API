@@ -9,13 +9,10 @@ const pool = new Pool({
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_DATABASE,
-  ssl:SSL,
-  // ssl: {
-  //   rejectUnauthorized: false,
-  // },
-  // connection: {
-  //   options: `project=${ENDPOINT_ID}`,
-  // },
+  ssl:'true',
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = pool;
