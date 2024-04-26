@@ -70,9 +70,8 @@ const login = async (req, res) => {
     const { senha: _, ...usuarioLogado } = usuario.rows[0];
     return res.status(200).json({ usuario: usuarioLogado, token });
   } catch (erro) {
-    return res.status(500).json({
-      mensagem: "ocorreu um erro",
-    });
+    console.log(erro);
+    return res.status(500).json({ mensagem: "ocorreu um erro"});
   }
 };
 
@@ -85,7 +84,10 @@ const detalharPerfilUsuario = async (req, res) => {
       nome,
     };
     return res.status(200).json(perfil);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ mensagem: "ocorreu um erro" });
+  }
 };
 
 const atualizarPerfilUsuario = async (req, res) => {
@@ -118,6 +120,7 @@ const atualizarPerfilUsuario = async (req, res) => {
     );
     return res.status(201).json();
   } catch (erro) {
+    console.log(erro);
     return res.status(500).json(erro);
   }
 };
