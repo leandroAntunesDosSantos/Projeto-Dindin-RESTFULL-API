@@ -10,9 +10,9 @@ const pool = new Pool({
   password: DB_PASSWORD,
   database: DB_DATABASE,
   ssl:SSL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // },
   // connection: {
   //   options: `project=${ENDPOINT_ID}`,
   // },
