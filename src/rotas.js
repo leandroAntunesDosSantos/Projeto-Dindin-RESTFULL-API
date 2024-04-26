@@ -6,6 +6,7 @@ const {
   login,
   detalharPerfilUsuario,
   atualizarPerfilUsuario,
+  deploy,
 } = require("./controladores/usuarios");
 
 const { listarCategorias } = require("./controladores/categorias");
@@ -21,6 +22,7 @@ const {
 
 const rotas = express();
 
+rotas.get("/", deploy); // Rota para deploy
 rotas.post("/usuario", cadastrarUsuario);
 rotas.post("/login", login);
 

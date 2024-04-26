@@ -3,6 +3,13 @@ const jwt = require("jsonwebtoken");
 const senhaSecreta = require("../senhaSecreta");
 const pool = require("../conexao");
 
+
+const deploy = async (req, res) => {
+  return res.status(200).json({ mensagem: "deploy ok" });
+}
+  
+
+
 const cadastrarUsuario = async (req, res) => {
   const { nome, email, senha } = req.body;
 
@@ -126,6 +133,7 @@ const atualizarPerfilUsuario = async (req, res) => {
 };
 
 module.exports = {
+  deploy,
   cadastrarUsuario,
   login,
   detalharPerfilUsuario,
