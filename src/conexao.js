@@ -1,7 +1,6 @@
 require("dotenv").config();
-const { DB_HOST, DB_PORT, DB_USER, DB_DATABASE, DB_PASSWORD } = process.env;
+const { DB_HOST, DB_PORT, DB_USER, DB_DATABASE, DB_PASSWORD, ENDPOINT_ID, SSL } = process.env;
 
-const { text } = require("express");
 const { Pool } = require("pg");
 
 const pool = new Pool({
@@ -10,13 +9,13 @@ const pool = new Pool({
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_DATABASE,
-  sslmode:'require',
+  ssl:SSL,
   ssl: {
-    mode: "require",
     rejectUnauthorized: false,
-    
   },
-  
+  // connection: {
+  //   options: `project=${ENDPOINT_ID}`,
+  // },
 });
 
 module.exports = pool;
