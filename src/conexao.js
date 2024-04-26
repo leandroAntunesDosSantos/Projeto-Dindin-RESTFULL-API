@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { DB_HOST, DB_PORT, DB_USER, DB_DATABASE, DB_PASSWORD } = process.env;
 
+const { text } = require("express");
 const { Pool } = require("pg");
 
 const pool = new Pool({
@@ -9,10 +10,7 @@ const pool = new Pool({
   user: DB_USER,
   password: DB_PASSWORD,
   database: DB_DATABASE,
-  ssl: {
-    require: true,
-    rejectUnauthorized: false,
-  },
+  ssl: true,
 });
 
 module.exports = pool;
