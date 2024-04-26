@@ -10,7 +10,7 @@ const pool = new Pool({
   password: DB_PASSWORD,
   database: DB_DATABASE,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   sslmode: 'require'
   },
 });
