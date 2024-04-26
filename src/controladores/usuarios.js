@@ -5,7 +5,7 @@ const pool = require("../conexao");
 const e = require("express");
 
 
-const deploy = async (req, res) => {
+const deploy = (req, res) => {
   try{
     return res.status(200).json({ mensagem: "deploy ok" });
   }catch (erro){
