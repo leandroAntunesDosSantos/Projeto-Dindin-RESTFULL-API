@@ -9,6 +9,7 @@ const deploy = async (req, res) => {
   try{
     return res.status(200).json({ mensagem: "deploy ok" });
   }catch (erro){
+    console.log(erro);
     return res.status(500).json(erro.message);
   }
 }

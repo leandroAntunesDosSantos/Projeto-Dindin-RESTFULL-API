@@ -11,6 +11,7 @@ const pool = new Pool({
   database: DB_DATABASE,
   ssl: {
     rejectUnauthorized: false,
+  sslmode: 'require'
   },
 });
 
