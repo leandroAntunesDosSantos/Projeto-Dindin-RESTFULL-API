@@ -2,10 +2,15 @@ const bcript = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const senhaSecreta = require("../senhaSecreta");
 const pool = require("../conexao");
+const e = require("express");
 
 
 const deploy = async (req, res) => {
-  return res.status(200).json({ mensagem: "deploy ok" });
+  try{
+    return res.status(200).json({ mensagem: "deploy ok" });
+  }catch (erro){
+    return res.status(500).json(erro.message);
+  }
 }
   
 
@@ -40,7 +45,6 @@ const cadastrarUsuario = async (req, res) => {
 
     return res.status(201).json(novoUsuario.rows[0]);
   } catch (erro) {
-    console.log(erro);
     return res.status(500).json(erro.message);
   }
 };
@@ -77,7 +81,6 @@ const login = async (req, res) => {
     const { senha: _, ...usuarioLogado } = usuario.rows[0];
     return res.status(200).json({ usuario: usuarioLogado, token });
   } catch (erro) {
-    console.log(erro);
     return res.status(500).json({ mensagem: "ocorreu um erro"});
   }
 };
@@ -92,7 +95,6 @@ const detalharPerfilUsuario = async (req, res) => {
     };
     return res.status(200).json(perfil);
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ mensagem: "ocorreu um erro" });
   }
 };
@@ -127,7 +129,6 @@ const atualizarPerfilUsuario = async (req, res) => {
     );
     return res.status(201).json();
   } catch (erro) {
-    console.log(erro);
     return res.status(500).json(erro);
   }
 };
