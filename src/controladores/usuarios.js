@@ -1,17 +1,20 @@
 const bcript = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const senhaSecreta = require("../senhaSecreta");
-const pool = require("../conexao");
-const e = require("express");
+
+//const pool = require("../conexao");
+const knex = require("../conexao");
 
 
-const deploy = (req, res) => {
+
+const deploy = async (req, res) => {
   try{
-    return res.status(200).json({ mensagem: "deploy ok" });
-  }catch (erro){
-    console.log(erro);
-    return res.status(500).json(erro.message);
-  }
+    const categoria = await knex('categorias').select('*')
+    return res.status(200).json(categoria)
+}catch(error){
+    console.log(error)
+    return res.status(400).json({erro: error.message})
+}
 }
   
 

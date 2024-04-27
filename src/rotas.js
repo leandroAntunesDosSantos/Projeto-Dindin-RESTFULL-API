@@ -2,10 +2,10 @@ const express = require("express");
 const verificarUsuarioLogado = require("./intermediarios/autenticacao");
 
 const {
-  cadastrarUsuario,
-  login,
-  detalharPerfilUsuario,
-  atualizarPerfilUsuario,
+  // cadastrarUsuario,
+  // login,
+  // detalharPerfilUsuario,
+  // atualizarPerfilUsuario,
   deploy,
 } = require("./controladores/usuarios");
 
@@ -32,7 +32,7 @@ rotas.get("/", deploy); // Rota para deploy
 
 // rotas.get("/usuario", detalharPerfilUsuario);
 // rotas.put("/usuario", atualizarPerfilUsuario);
-rotas.get("/categoria", listarCategorias);
+// rotas.get("/categoria", listarCategorias);
 // rotas.get("/transacao", listarTransacoesLogado);
 // rotas.get("/transacao/:id", detalharTransacao);
 // rotas.post("/transacao", cadastrarTransacao);
