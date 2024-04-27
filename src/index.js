@@ -12,4 +12,4 @@ app.use(express.json());
 
 app.use(rotas);
 
-app.listen(PORT);
+app.listen(PORT, () => console.log(`O servidor está rodando na porta ${PORT}`));
