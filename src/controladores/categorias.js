@@ -1,11 +1,11 @@
-const pool = require("../conexao");
+const knex = require("../conexao");
 
 const listarCategorias = async (req, res) => {
   try {
     const categoria = req.categoria;
-    const listaCategoriaI = await pool.query("select * from categorias");
+    const listaCategoria = await knex("categorias").select("*");
 
-    return res.status(200).json(listaCategoriaI.rows);
+    return res.status(200).json(listaCategoria.rows);
   } catch (erro) {
     return res.status(500).json({ mensagem: "ocorreu um erro" });
   }
